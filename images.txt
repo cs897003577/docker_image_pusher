@@ -1,7 +1,1 @@
 phalanetwork/khala-node-with-launcher:latest
-phalanetwork/khala-node:latest
-phalanetwork/phala-pruntime:latest
-phalanetwork/phala-pherry:latest
-phalanetwork/prb3:latest
-phalanetwork/prb3-monitor:latest
-phalanetwork/headers-cache:latest
