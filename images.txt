@@ -5,3 +5,17 @@ phalanetwork/phala-pherry:latest
 phalanetwork/prb3:latest
 phalanetwork/prb3-monitor:latest
 phalanetwork/headers-cache:latest
+probezy/cpolar
+p3terx/aria2-pro
+fauria/vsftpd
+dperson/samba
+chonjay21/webdav
+pch18/baota
+wangbinxingkong/fast
+filebrowser/filebrowser
+ghcr.io/home-assistant/home-assistant:stable
+fuzzle/docker-nfs-server:latest
+prom/prometheus
+grafana/grafana
+google/cadvisor:latest
+natfrp/frpc
