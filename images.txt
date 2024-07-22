@@ -19,3 +19,5 @@ prom/prometheus
 grafana/grafana
 google/cadvisor:latest
 natfrp/frpc
+homeassistant/armv7-homeassistant
+homeassistant/home-assistant:latest
