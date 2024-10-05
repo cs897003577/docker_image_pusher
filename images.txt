@@ -1,3 +1,4 @@
+v2fly/v2fly-core
 phalanetwork/khala-node-with-launcher:latest
 phalanetwork/khala-node:latest
 phalanetwork/phala-pruntime:latest
