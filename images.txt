@@ -1,1 +1,1 @@
-homeassistant/aarch64-homeassistant
+homeassistant/aarch64-homeassistant:2024.11.0.dev202410080231
