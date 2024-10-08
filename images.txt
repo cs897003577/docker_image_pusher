@@ -14,12 +14,12 @@ chonjay21/webdav
 pch18/baota
 wangbinxingkong/fast
 filebrowser/filebrowser
-ghcr.io/home-assistant/home-assistant:stable
 fuzzle/docker-nfs-server:latest
 prom/prometheus
 grafana/grafana
 google/cadvisor:latest
 natfrp/frpc
-homeassistant/armv7-homeassistant
+homeassistant/armv7-homeassistant:latest
+homeassistant/aarch64-hassio-supervisor:latest
 homeassistant/home-assistant:latest
 xhofe/alist:latest
