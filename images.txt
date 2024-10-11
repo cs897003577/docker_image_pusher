@@ -1,1 +1,1 @@
-homeassistant/aarch64-hassio-supervisor
+homeassistant/aarch64-hassio-supervisor:latest
