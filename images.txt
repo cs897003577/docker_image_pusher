@@ -1,1 +1,1 @@
-alexxit/go2rtc
+homeassistant/aarch64-hassio-supervisor
