@@ -4,6 +4,9 @@ on:
   workflow_dispatch:
   push:
     branches: [ main ]
+  # 每月1号晚上11点执行
+  schedule:
+    - cron: '00 23 1 * *'
 
 
 env:
