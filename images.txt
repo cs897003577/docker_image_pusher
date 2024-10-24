@@ -1,8 +1,8 @@
 phalanetwork/prb3:latest
 phalanetwork/prb3:24041802
 phalanetwork/prb3-monitor:latest
-docker pull phalanetwork/khala-node-with-launcher:v0.1.28
-phalanetwork/khala-node-with-launcher:latest
+phalanetwork/khala-node-with-launcher:v0.1.26
+#phalanetwork/khala-node-with-launcher:latest
 phalanetwork/phala-pruntime:latest
 #支持指定架构
 #--platform=linux/arm64 xiaoyaliu/alist
