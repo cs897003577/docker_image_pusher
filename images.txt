@@ -1,4 +1,5 @@
 phalanetwork/prb3:latest
+phalanetwork/prb3:24041802
 phalanetwork/prb3-monitor:latest
 phalanetwork/khala-node-with-launcher:latest
 phalanetwork/phala-pruntime:latest
