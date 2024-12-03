@@ -50,5 +50,8 @@ google/cadvisor:latest
 #SakuraFRP
 natfrp/frpc
 
+#openwrt armbian可用
+jyhking/onecloud:1.1
+
 #支持指定架构
 #--platform=linux/arm64 xiaoyaliu/alist
