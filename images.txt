@@ -53,5 +53,14 @@ natfrp/frpc
 #openwrt armbian可用
 jyhking/onecloud:1.1
 
+#redis
+redis:latest
+
+#clash-meta
+metacubex/clash-meta:latest
+
+#nginx
+nginx:latest
+
 #支持指定架构
 #--platform=linux/arm64 xiaoyaliu/alist
