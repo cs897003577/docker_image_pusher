@@ -62,5 +62,8 @@ metacubex/clash-meta:latest
 #nginx
 nginx:latest
 
+#vodspider
+vodspider:1.0
+
 #支持指定架构
 #--platform=linux/arm64 xiaoyaliu/alist
