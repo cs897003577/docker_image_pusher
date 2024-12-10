@@ -1,2 +1,2 @@
-#vodspider
-vodspider:1.0
+#tailscale derper
+fredliang/derper:latest
