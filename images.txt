@@ -1,2 +1,1 @@
-#tailscale derper
-fredliang/derper:latest
+xhofe/alist:latest
