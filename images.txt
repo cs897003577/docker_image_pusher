@@ -1,3 +1,6 @@
+#istoreos
+soroke/istoreos
+
 #phala
 phalanetwork/prb3:latest
 phalanetwork/prb3:24041802
