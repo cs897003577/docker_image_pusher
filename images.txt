@@ -3,3 +3,6 @@ linkease/desktop-ubuntu2-standard-amd64:latest
 
 #tailscale
 tailscale/tailscale:latest
+
+#iptv-api
+guovern/iptv-api
