@@ -4,8 +4,11 @@ linkease/desktop-ubuntu2-standard-amd64:latest
 #tailscale
 tailscale/tailscale:latest
 
-#iptv-api
+#iptv-api 完整版
 guovern/iptv-api
+
+#iptv-api 精简版
+guovern/iptv-api:lite
 
 #115Docker
 xiuxiu10201/115:latest
