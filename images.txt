@@ -1,3 +1,6 @@
+# lobe-chat （可对接deepseek）
+lobehub/lobe-chat
+
 #web-ubuntu
 linkease/desktop-ubuntu2-standard-amd64:latest
 
