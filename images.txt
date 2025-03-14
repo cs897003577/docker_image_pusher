@@ -15,3 +15,6 @@ guovern/iptv-api:lite
 
 #115Docker
 xiuxiu10201/115:latest
+
+#homeassistant
+ghcr.io/home-assistant/home-assistant:stable
