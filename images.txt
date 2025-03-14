@@ -17,4 +17,4 @@ guovern/iptv-api:lite
 xiuxiu10201/115:latest
 
 #homeassistant
-ghcr.io/home-assistant/home-assistant:stable
+homeassistant/home-assistant:latest
