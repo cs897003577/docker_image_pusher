@@ -1,20 +1,3 @@
-# lobe-chat （可对接deepseek）
-lobehub/lobe-chat
-
-#web-ubuntu
-linkease/desktop-ubuntu2-standard-amd64:latest
-
-#tailscale
-tailscale/tailscale:latest
-
-#iptv-api 完整版
-guovern/iptv-api
-
-#iptv-api 精简版
-guovern/iptv-api:lite
-
-#115Docker
-xiuxiu10201/115:latest
-
-#homeassistant
-homeassistant/home-assistant:latest
+fooolili/aipan-netdisk-search
+godoos/godoos:latest
+louislam/uptime-kuma:latest
