@@ -1,1 +1,1 @@
-germannewsmaker/myspeed:latest
+adolfintel/speedtest:latest
