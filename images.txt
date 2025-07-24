@@ -1,1 +1,1 @@
-haroldli/xiaoya-tvbox:native
+germannewsmaker/myspeed:latest
