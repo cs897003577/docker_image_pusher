@@ -1,5 +1,5 @@
-butnami/nginx:alpine
+mariadb:10.11
 
-bitnami/php-fpm:alpine
+php:8.2-fpm-alpine
 
-bitnami/mysql:latest
+nginx:1.25-alpine
