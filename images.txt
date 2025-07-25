@@ -1,1 +1,1 @@
-boosen/lnmp
+boosen/lnmp:v1
