@@ -1,1 +1,1 @@
-boosen/lnmp:v1
+dockerhub200910/lnmp:latest
