@@ -1,5 +1,1 @@
-mariadb:10.11
-
-php:8.2-fpm-alpine
-
-nginx:1.25-alpine
+boosen/lnmp
