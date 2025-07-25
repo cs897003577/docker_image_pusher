@@ -1,5 +1,1 @@
-nginx:alpine
-
-php:7-fpm-alpine
-
-mysql:alpine
+library/mysql:alpine
