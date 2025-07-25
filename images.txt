@@ -1,5 +1,5 @@
-nginx:1.2.4
+nginx:alpine
 
-php:5.7.44
+php:7-fpm-alpine
 
-mysql:5.7.44
+mysql:alpine
