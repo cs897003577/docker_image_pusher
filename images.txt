@@ -1,1 +1,5 @@
-adolfintel/speedtest:latest
+butnami/nginx:alpine
+
+bitnami/php-fpm:alpine
+
+bitnami/mysql:latest
