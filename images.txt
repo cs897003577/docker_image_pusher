@@ -1,1 +1,1 @@
-pierlon1/scrcpy:intel
+emptysuns/scrcpy-web:v0.1
