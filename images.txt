@@ -1,1 +1,1 @@
-erstt/redroid:12.0.0_houdini_WSA
+codercom/code-server:latest
