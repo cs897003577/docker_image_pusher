@@ -1,1 +1,1 @@
-codercom/code-server:latest
+docblue/chfs:v4.0beta.min
