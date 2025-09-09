@@ -1,1 +1,1 @@
-pierlon/scrcpy-docker:intel
+pierlon1/scrcpy:intel
