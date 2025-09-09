@@ -1,1 +1,1 @@
-dockurr/macos
+pierlon/scrcpy-docker
