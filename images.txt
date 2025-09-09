@@ -1,1 +1,1 @@
-emptysuns/scrcpy-web:v0.1
+redroid/redroid:8.1.0-latest
