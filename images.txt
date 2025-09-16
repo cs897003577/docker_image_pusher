@@ -1,1 +1,2 @@
-xiuxiu10201/115:latest
+ghcr.io/katelya77/katelyatv:latest
+redis:7-alpine
