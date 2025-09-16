@@ -1,1 +1,5 @@
-lejianwen/rustdesk-server-s6:latest
+heavrnl/nexus-terminal-frontend:latest
+heavrnl/nexus-terminal-backend:latest
+heavrnl/nexus-terminal-remote-gateway:latest
+guacamole/guacd:latest
+lscr.io/linuxserver/wps-office:chinese
