@@ -1,2 +1,1 @@
-ghcr.io/katelya77/katelyatv:latest
-redis:7-alpine
+lejianwen/rustdesk-server-s6:latest
