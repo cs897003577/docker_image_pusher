@@ -1,1 +1,1 @@
-pretty66/iptables-web:1.1.1.1
+lscr.io/linuxserver/msedge:latest
