@@ -1,1 +1,1 @@
-jaywink/scrcpy-server
+adguard/adguardhome
