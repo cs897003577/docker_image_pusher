@@ -1,1 +1,1 @@
-garybowers/iventoy
+jaywink/scrcpy-server
