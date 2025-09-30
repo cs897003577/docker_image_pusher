@@ -1,1 +1,1 @@
-adguard/adguardhome
+guovern/tv-driver:latest
