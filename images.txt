@@ -1,1 +1,1 @@
-php:5.6-fpm
+homeassistant/home-assistant:stable-alpine
