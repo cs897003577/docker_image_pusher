@@ -1,1 +1,2 @@
-homeassistant/home-assistant:stable-alpine
+kowming/istoreos-openwrt-n1-aarch64:istoreos
+registry.cn-shanghai.aliyuncs.com/suling/openwrt:armv8
