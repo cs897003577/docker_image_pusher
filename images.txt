@@ -1,1 +1,1 @@
-sulingg/openwrt
+scavin/ws-scrcpy
