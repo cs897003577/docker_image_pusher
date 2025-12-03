@@ -1,1 +1,3 @@
 youshandefeiyang/allinone
+youshandefeiyang/av3a-assistant:amd64
+yuexuangu/allinone_format:latest
