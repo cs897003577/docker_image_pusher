@@ -1,3 +1,1 @@
-youshandefeiyang/allinone
-youshandefeiyang/av3a-assistant:amd64
-yuexuangu/allinone_format:latest
+php:5.6.40-fpm
