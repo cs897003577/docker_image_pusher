@@ -1,1 +1,1 @@
-openclaw/openclaw:2026-latest
+emptysuns/ws-scrcpy
