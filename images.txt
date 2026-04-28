@@ -1,2 +1,4 @@
 ghcr.io/immich-app/immich-server:release
-postgres:14
+ghcr.io/immich-app/immich-machine-learning:release
+docker.io/valkey/valkey:9
+ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0
