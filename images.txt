@@ -1,1 +1,2 @@
-emptysuns/ws-scrcpy
+ghcr.io/immich-app/immich-server:release
+postgres:14
