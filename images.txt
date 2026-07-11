@@ -1,3 +1,1 @@
-qazzxxx/cloudimgs:latest
-zhixinfang/dockports:latest  
-mtphotos/mt-photos:latest
+heizicao/gift-book:beta
