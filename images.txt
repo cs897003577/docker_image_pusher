@@ -1,1 +1,1 @@
-
+registry.cn-chengdu.aliyuncs.com/software-yxl/onlyoffice
