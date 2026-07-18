@@ -1,1 +1,1 @@
-alist666/alist:latest
+alist666/alist:v3.40.0-ffmpeg
