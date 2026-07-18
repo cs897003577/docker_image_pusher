@@ -1,1 +1,1 @@
-openlistteam/openlist:latest
+alist666/alist:latest
