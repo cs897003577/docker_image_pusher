@@ -1,1 +1,1 @@
-ghcr.io/home-assistant/core:stable
+homeassistant/home-assistant:stable
