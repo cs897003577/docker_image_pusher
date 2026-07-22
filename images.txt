@@ -1,1 +1,1 @@
-scavin/ws-scrcpy
+onlyoffice/documentserver:latest
