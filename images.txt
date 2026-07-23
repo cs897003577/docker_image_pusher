@@ -1,1 +1,0 @@
-ghcr.io/xiaomi/miloco-backend:latest
