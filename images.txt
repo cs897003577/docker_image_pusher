@@ -1,1 +1,1 @@
-filebrowser/filebrowser:latest
+openlistteam/openlist:latest
