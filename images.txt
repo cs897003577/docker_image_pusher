@@ -1,1 +1,1 @@
-fredliang/derper
+filebrowser/filebrowser:latest
