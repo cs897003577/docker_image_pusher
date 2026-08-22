@@ -1,5 +1,1 @@
-tensorchord/pgvecto-rs:pg16-v0.7
-redis:7-alpine
-ghcr.io/immich-app/immich-server:release
-ghcr.io/immich-app/immich-microservices:release
-ghcr.io/immich-app/immich-web:release
+dockurr/windows
