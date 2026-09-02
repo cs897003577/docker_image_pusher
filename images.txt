@@ -1,2 +1,1 @@
-
 lampon/omnibox:latest
