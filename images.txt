@@ -1,1 +1,1 @@
-lampon/omnibox:latest
+ghcr.io/lunatechlab/moontv:latest
