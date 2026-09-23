@@ -1,1 +1,1 @@
-alexxit/go2rtc:latest
+w12725/emby:4.8.11.0
