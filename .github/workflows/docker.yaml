@@ -15,7 +15,6 @@ jobs:
     steps:
       - name: Check docker version
         run: docker --version
-
       - name: 检出代码
         uses: actions/checkout@v4
 
@@ -25,50 +24,34 @@ jobs:
           docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
           echo "✅ 阿里云仓库登录完成"
 
-      # ========== 第一个镜像 bestrui/octopus:v0.9.28 ==========
-      - name: 拉取镜像 bestrui/octopus:v0.9.28
+      - name: 读取images.txt循环同步镜像
         run: |
-          echo "开始拉取 bestrui/octopus:v0.9.28"
-          docker pull bestrui/octopus:v0.9.28
-          echo "✅ bestrui/octopus:v0.9.28 拉取成功"
+          # 读取images.txt，循环每一行
+          while IFS= read -r SOURCE_IMG; do
+            # 跳过空行
+            if [[ -z "$SOURCE_IMG" ]]; then
+              continue
+            fi
+            echo "====================================="
+            echo "🔄 当前处理镜像: $SOURCE_IMG"
+            
+            # 把 / 和 : 替换成下划线，作为阿里云镜像名称
+            IMG_NAME=$(echo "$SOURCE_IMG" | sed 's/\//_/g')
+            TARGET_IMG="${ALIYUN_REGISTRY}/${ALIYUN_NAME_SPACE}/${IMG_NAME}"
+            
+            echo "开始拉取镜像 $SOURCE_IMG"
+            docker pull "$SOURCE_IMG"
+            echo "✅ $SOURCE_IMG 拉取成功"
 
-      - name: 标记并推送到阿里云
-        run: |
-          SOURCE_IMG="bestrui/octopus:v0.9.28"
-          TARGET_IMG="${ALIYUN_REGISTRY}/${ALIYUN_NAME_SPACE}/bestrui_octopus:v0.9.28"
-          echo "开始打标签：$SOURCE_IMG -> $TARGET_IMG"
-          docker tag $SOURCE_IMG $TARGET_IMG
-          echo "开始推送到阿里云ACR"
-          docker push $TARGET_IMG
-          echo "✅ bestrui/octopus:v0.9.28 推送阿里云成功"
+            echo "打标签：$SOURCE_IMG -> $TARGET_IMG"
+            docker tag "$SOURCE_IMG" "$TARGET_IMG"
 
-      - name: 清理本地镜像 bestrui/octopus:v0.9.28
-        if: always()
-        run: |
-          echo "清理本地镜像 bestrui/octopus:v0.9.28"
-          docker rmi bestrui/octopus:v0.9.28 || true
-          echo "✅ 本地镜像清理完毕"
+            echo "推送到阿里云ACR $TARGET_IMG"
+            docker push "$TARGET_IMG"
+            echo "✅ $SOURCE_IMG 推送阿里云成功"
 
-      # ========== 第二个镜像 decolua/9router:latest ==========
-      - name: 拉取镜像 decolua/9router:latest
-        run: |
-          echo "开始拉取 decolua/9router:latest"
-          docker pull decolua/9router:latest
-          echo "✅ decolua/9router:latest 拉取成功"
-
-      - name: 标记并推送到阿里云
-        run: |
-          SOURCE_IMG="decolua/9router:latest"
-          TARGET_IMG="${ALIYUN_REGISTRY}/${ALIYUN_NAME_SPACE}/decolua_9router:latest"
-          echo "开始打标签：$SOURCE_IMG -> $TARGET_IMG"
-          docker tag $SOURCE_IMG $TARGET_IMG
-          echo "开始推送到阿里云ACR"
-          docker push $TARGET_IMG
-          echo "✅ decolua/9router:latest 推送阿里云成功"
-
-      - name: 清理本地镜像 decolua/9router:latest
-        if: always()
-        run: |
-          echo "清理本地镜像 decolua/9router:latest"
-          docker rmi decolua/9router:latest || true
-          echo "✅ 本地镜像清理完毕"
+            echo "清理本地镜像 $SOURCE_IMG"
+            docker rmi "$SOURCE_IMG" || true
+            docker rmi "$TARGET_IMG" || true
+            echo "✅ 本地镜像清理完毕"
+          done < images.txt
