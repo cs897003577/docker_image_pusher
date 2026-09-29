@@ -1,2 +1,1 @@
-bestrui/octopus:v0.9.28
-decolua/9router:latest
+bestruirui/octopus:latest
