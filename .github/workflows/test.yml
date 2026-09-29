@@ -1,0 +1,17 @@
+name: Check Docker Pull Image
+on:
+  workflow_dispatch: # 手动触发
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check docker version
+        run: docker --version
+      - name: Try pull bestrui/octopus:v0.9.28
+        run: |
+          echo "开始拉取 bestrui/octopus:v0.9.28"
+          docker pull bestrui/octopus:v0.9.28
+          echo "✅ 拉取成功"
+      - name: Clean image
+        if: always()
+        run: docker rmi bestrui/octopus:v0.9.28 || true
