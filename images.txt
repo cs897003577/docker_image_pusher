@@ -1,1 +1,1 @@
-bestruirui/octopus:latest
+bestrui/octopus:latest
