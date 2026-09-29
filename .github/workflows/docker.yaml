@@ -17,25 +17,30 @@ jobs:
         run: docker --version
       - name: 检出代码
         uses: actions/checkout@v4
-
       - name: 登录阿里云ACR镜像仓库
         run: |
           echo "正在登录阿里云容器镜像仓库"
           docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
           echo "✅ 阿里云仓库登录完成"
-
       - name: 读取images.txt循环同步镜像
         run: |
-          # 读取images.txt，循环每一行
-          while IFS= read -r SOURCE_IMG; do
+          echo "===== 调试信息：images.txt内容 ====="
+          cat -v images.txt
+          echo "===== 文件总行数 ====="
+          wc -l images.txt
+
+          # mapfile读取全部行到数组，解决末尾无换行读不到的问题
+          mapfile -t IMAGE_LIST < images.txt
+
+          for SOURCE_IMG in "${IMAGE_LIST[@]}"; do
             # 跳过空行
             if [[ -z "$SOURCE_IMG" ]]; then
               continue
             fi
             echo "====================================="
-            echo "🔄 当前处理镜像: $SOURCE_IMG"
+            echo "🔄 当前处理镜像: >$SOURCE_IMG<"
             
-            # 把 / 和 : 替换成下划线，作为阿里云镜像名称
+            # 把 / 替换成下划线，阿里云仓库名称不允许 /
             IMG_NAME=$(echo "$SOURCE_IMG" | sed 's/\//_/g')
             TARGET_IMG="${ALIYUN_REGISTRY}/${ALIYUN_NAME_SPACE}/${IMG_NAME}"
             
@@ -54,4 +59,4 @@ jobs:
             docker rmi "$SOURCE_IMG" || true
             docker rmi "$TARGET_IMG" || true
             echo "✅ 本地镜像清理完毕"
-          done < images.txt
+          done
