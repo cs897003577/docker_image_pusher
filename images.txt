@@ -1,1 +1,1 @@
-bestrui/octopus:latest
+bestrui/octopus:v0.9.28
