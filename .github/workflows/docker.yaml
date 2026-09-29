@@ -15,48 +15,44 @@ jobs:
     steps:
       - name: Check docker version
         run: docker --version
-      - name: 检出代码
+      - name: 开始执行任务
         uses: actions/checkout@v4
-      - name: 登录阿里云ACR镜像仓库
+      - name: docker镜像同步任务
         run: |
-          echo "正在登录阿里云容器镜像仓库"
-          docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
-          echo "✅ 阿里云仓库登录完成"
-      - name: 读取images.txt循环同步镜像
-        run: |
-          echo "===== 调试信息：images.txt内容 ====="
-          cat -v images.txt
-          echo "===== 文件总行数 ====="
-          wc -l images.txt
-
-          # mapfile读取全部行到数组，解决末尾无换行读不到的问题
+          echo "➡️ 从images.txt获取最新镜像数据"
+          # mapfile读取全部行，兼容无末尾换行
           mapfile -t IMAGE_LIST < images.txt
+          # 过滤空行
+          IMAGE_LIST=($(for line in "${IMAGE_LIST[@]}"; do echo "$line"; done | sed '/^[[:space:]]*$/d'))
+          TOTAL=${#IMAGE_LIST[@]}
+          echo "✅ 获取成功，共${TOTAL}条："
+          for line in "${IMAGE_LIST[@]}"; do
+            echo "      $line"
+          done
 
+          echo "➡️ 正在登录阿里容器镜像仓库"
+          docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
+          echo "✅ 阿里容器镜像仓库登录完成"
+
+          INDEX=1
           for SOURCE_IMG in "${IMAGE_LIST[@]}"; do
-            # 跳过空行
-            if [[ -z "$SOURCE_IMG" ]]; then
-              continue
-            fi
-            echo "====================================="
-            echo "🔄 当前处理镜像: >$SOURCE_IMG<"
-            
-            # 把 / 替换成下划线，阿里云仓库名称不允许 /
+            echo "➡️ 拉取第${INDEX}条数据：${SOURCE_IMG}"
+            docker pull "${SOURCE_IMG}"
+            echo "✅ 镜像拉取成功"
+
+            # /替换下划线，兼容 bestrui/octopus 不带tag的情况
             IMG_NAME=$(echo "$SOURCE_IMG" | sed 's/\//_/g')
             TARGET_IMG="${ALIYUN_REGISTRY}/${ALIYUN_NAME_SPACE}/${IMG_NAME}"
-            
-            echo "开始拉取镜像 $SOURCE_IMG"
-            docker pull "$SOURCE_IMG"
-            echo "✅ $SOURCE_IMG 拉取成功"
 
-            echo "打标签：$SOURCE_IMG -> $TARGET_IMG"
-            docker tag "$SOURCE_IMG" "$TARGET_IMG"
+            echo "➡️ 正在上传第${INDEX}条镜像：${SOURCE_IMG}"
+            docker tag "${SOURCE_IMG}" "${TARGET_IMG}"
+            docker push "${TARGET_IMG}"
+            echo "✅ 镜像上传到阿里容器镜像仓库成功"
 
-            echo "推送到阿里云ACR $TARGET_IMG"
-            docker push "$TARGET_IMG"
-            echo "✅ $SOURCE_IMG 推送阿里云成功"
+            echo "✅ 清理缓存成功"
+            docker rmi "${SOURCE_IMG}" || true
+            docker rmi "${TARGET_IMG}" || true
 
-            echo "清理本地镜像 $SOURCE_IMG"
-            docker rmi "$SOURCE_IMG" || true
-            docker rmi "$TARGET_IMG" || true
-            echo "✅ 本地镜像清理完毕"
+            INDEX=$((INDEX+1))
           done
+          echo "🎉 所有任务已完成"
