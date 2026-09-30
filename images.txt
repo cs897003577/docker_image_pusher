@@ -1,1 +1,2 @@
-decolua/9router:latest
+nousresearch/hermes-agent:latest
+ekkoye8888/hermes-web-ui:latest
