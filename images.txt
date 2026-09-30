@@ -1,1 +1,2 @@
-bestrui/octopus:v0.9.28
+nousresearch/hermes-agent:latest
+ekkoye8888/hermes-web-ui:latest
