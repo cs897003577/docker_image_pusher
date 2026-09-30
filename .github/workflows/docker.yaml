@@ -1,9 +1,9 @@
 name: Pull And Push To Aliyun
 on:
-  workflow_dispatch:
+  workflow_dispatch: # 保留：支持网页手动执行
   push:
     paths:
-      - 'images.txt'
+      - 'images.txt'  # images.txt文件变更自动触发
 env:
   ALIYUN_REGISTRY: "${{ secrets.ALIYUN_REGISTRY }}"
   ALIYUN_NAME_SPACE: "${{ secrets.ALIYUN_NAME_SPACE }}"
@@ -30,8 +30,6 @@ jobs:
             echo "      $line"
           done
 
-          mkdir -p docker_hub
-
           echo "➡️ 正在登录阿里容器镜像仓库"
           docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
           echo "✅ 阿里容器镜像仓库登录完成"
@@ -42,13 +40,9 @@ jobs:
             docker pull "${SOURCE_IMG}"
             echo "✅ 镜像拉取成功"
 
+            # /替换下划线，兼容 bestrui/octopus 不带tag的情况
             IMG_NAME=$(echo "$SOURCE_IMG" | sed 's/\//_/g')
             TARGET_IMG="${ALIYUN_REGISTRY}/${ALIYUN_NAME_SPACE}/${IMG_NAME}"
-            SAVE_FILE="docker_hub/${IMG_NAME}.tar"
-
-            echo "➡️ 正在保存镜像到文件：${SAVE_FILE}"
-            docker save -o "${SAVE_FILE}" "${SOURCE_IMG}"
-            echo "✅ 镜像已保存到 ${SAVE_FILE}"
 
             echo "➡️ 正在上传第${INDEX}条镜像：${SOURCE_IMG}"
             docker tag "${SOURCE_IMG}" "${TARGET_IMG}"
